@@ -31,32 +31,30 @@ int main()
     string* id = new string[size];
     double* score = new double[size];
     char* grade = new char[size];
-
+    int i=0;
     // TODO: วนรับข้อมูล size คน
-    for (int i = 0; i < size; i++) {
+    while(i < size) {
+
         cout << "Enter name of student " << i + 1 << ": ";
         getline(cin, name[i]);
+
         cout << "Enter ID of student " << i + 1 << ": ";
         getline(cin, id[i]);
-        score[i] = 0;
 
-        double total = 0;
-        for (int j = 0; j < 4; j++) {
-            double subjectScore;
-            cout << "Enter score for subject " << j + 1 << ": ";
-            cin >> subjectScore;
-            total += subjectScore;
-        }
-        score[i] = total; 
-        // TODO: calculateGrade(score[i], grade[i]);
-        calculateGrade(total, grade[i]);
+        cout << "Enter scores: ";
+        cin >> score[i];
         cin.ignore();
+        
+        // TODO: calculateGrade(score[i], grade[i]);
+        calculateGrade(score[i], grade[i]);
+        i++;
     }
-
+    int j=0;
     // TODO: วนแสดงผล size คน ด้วย displayStudentInfo
-    for (int i = 0; i < size; i++) {
-        displayStudentInfo(name[i], id[i], score[i], grade[i]);
+    while (j < size) {
         cout << endl;
+        displayStudentInfo(name[j], id[j], score[j], grade[j]);
+        j++;
     }
 
     // TODO: delete[] ให้ครบทุกตัวแปร
